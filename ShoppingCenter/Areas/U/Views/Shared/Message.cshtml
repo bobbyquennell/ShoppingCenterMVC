@@ -1,0 +1,18 @@
+﻿<h3>@ViewBag.Title</h3>
+
+<hr />
+
+@foreach (var s in ViewBag.Message)
+{
+    <p>@s</p>
+}
+<hr />
+
+@switch ((string)ViewBag.InvokeType)
+{
+    case "ActionLink":
+        @Html.ActionLink((string)ViewBag.LinkString, (string)ViewBag.Action, (string)ViewBag.Controller, new { Area = ViewBag.Area }, new { })
+        break;
+    default:
+        break;
+}
