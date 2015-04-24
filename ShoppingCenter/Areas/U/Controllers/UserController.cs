@@ -15,6 +15,8 @@ namespace ShoppingCenter.Areas.U.Controllers
         // GET: U/User/Index
         public ActionResult Index()
         {
+            HttpContext.User.Identity
+
             return View();
         }
 
@@ -75,7 +77,7 @@ namespace ShoppingCenter.Areas.U.Controllers
         // GET: U/User/Active
         public ActionResult Active(ActiveViewModel model)
         {
-            if(model.Email == null)
+            if (String.IsNullOrEmpty(model.Email))
             {
                 return View();
             }
@@ -124,6 +126,7 @@ namespace ShoppingCenter.Areas.U.Controllers
         // GET: U/User/SignIn
         public ActionResult SignIn()
         {
+            Session.Add("UrlReferrer", Request.UrlReferrer);
             return View();
         }
 
@@ -131,7 +134,16 @@ namespace ShoppingCenter.Areas.U.Controllers
         [HttpPost]
         public ActionResult SignIn(SignInViewModel model)
         {
-            return View();
+
+            //成功后
+            if (Session["UrlReferrer"] == null)
+            {
+                return RedirectToAction("Index", new { area = "U" });
+            }
+            else
+            {
+                return Redirect(Session["UrlReferrer"].ToString());
+            }
         }
     }
 }
