@@ -3,6 +3,7 @@ using ShoppingCenter.UserManage;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 
@@ -15,9 +16,25 @@ namespace ShoppingCenter.Areas.U.Controllers
         // GET: U/User/Index
         public ActionResult Index()
         {
-            HttpContext.User.Identity
-
-            return View();
+            if (Session["IsSignedIn"] == null || !(bool)Session["IsSignedIn"])
+            {
+                //User Not Sign In
+                return PartialView();
+            }
+            else
+            {
+                //User Sign In
+                if (Session["User"] == null)
+                {
+                    //Sign In Information Lost Need ReSign In
+                    return PartialView();
+                }
+                else
+                {
+                    var user = Session["User"] as ShoppingCenter.UserManage.User;
+                    return PartialView(user);
+                }
+            }
         }
 
         // GET: U/User/SignUp
@@ -75,17 +92,17 @@ namespace ShoppingCenter.Areas.U.Controllers
         }
 
         // GET: U/User/Active
-        public ActionResult Active(ActiveViewModel model)
+        public async Task<ActionResult> Active(ActiveViewModel model)
         {
             if (String.IsNullOrEmpty(model.Email))
             {
+                model = null;
                 return View();
             }
 
-
             if (ModelState.IsValid)
             {
-                var result = client.ActiveAccount(model.Email.Trim(), model.ConfirmationCode.Trim());
+                var result = await client.ActiveAccountAsync(model.Email.Trim(), model.ConfirmationCode.Trim());
                 if (result.Success)
                 {
                     ViewBag.Message = new string[] 
@@ -132,17 +149,54 @@ namespace ShoppingCenter.Areas.U.Controllers
 
         // POST: U/User/SignIn
         [HttpPost]
-        public ActionResult SignIn(SignInViewModel model)
+        public async Task<ActionResult> SignIn(SignInViewModel model)
         {
+            var result = await client.SignInAsync(model.Email.Trim(), model.Password);
 
-            //成功后
-            if (Session["UrlReferrer"] == null)
+            if (result.Success)
             {
-                return RedirectToAction("Index", new { area = "U" });
+                //成功
+
+                //账户是否激活？
+                if (result.User.IsConfirmed)
+                {
+                    //账号已经激活
+                    //处理Session
+                    Session["IsSignedIn"] = true;
+                    Session["User"] = result.User;
+
+                    //返回当前页面
+                    if (Session["UrlReferrer"] == null)
+                    {
+                        return RedirectToAction("Index", new { area = "U" });
+                    }
+                    else
+                    {
+                        return Redirect(Session["UrlReferrer"].ToString());
+                    }
+                }
+                else
+                {
+                    //尚未激活
+                    ViewBag.Message = new string[]
+                    {
+                        "Your account is inactive. Please active before sign in"
+                    };
+
+                    ViewBag.Title = "Account Needs Active";
+                    ViewBag.InvokeType = "ActionLink";
+                    ViewBag.LinkString = "Active Your Account";
+                    ViewBag.Action = "Active";
+                    ViewBag.Controller = "User";
+                    ViewBag.Area = "U";
+
+                    return View("Message");
+                }
             }
             else
             {
-                return Redirect(Session["UrlReferrer"].ToString());
+                //验证失败
+                return View(model);
             }
         }
     }

@@ -19,17 +19,7 @@
                 </button>
                 @Html.ActionLink("Shopping Center", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
-            <div class="navbar-collapse collapse navbar-right">
-                <ul class="nav navbar-nav">
-                   @render
-                    <li>
-                        @Html.ActionLink("SIGN IN", "SignIn", "User", new { area = "U" }, new { })
-                    </li>
-                    <li>
-                        @Html.ActionLink("SIGN UP", "SignUp", "User", new { area = "U" }, new { })
-                    </li>
-                </ul>
-            </div>
+            @Html.Action("Index", "User", new { Area="U"})
         </div>
     </div>
 

@@ -1,12 +1,28 @@
-﻿
-<ul class="nav nav-justified">
-    <li>
-        @Html.ActionLink("SIGN IN", "SignIn", "User", new { area = "U" }, new { })
-    </li>
-    <li>
-        @Html.ActionLink("SIGN UP", "SignUp", "User", new { area = "U" }, new { })
-    </li>
-    <li>
-        @Html.ActionLink("Active Account", "Active", "User", new { area = "U" }, new { })
-    </li>
-</ul>
+﻿@model ShoppingCenter.UserManage.User
+<div class="navbar-collapse collapse navbar-right">
+    @if (Model == null)
+    {
+        <ul class="nav navbar-nav">
+            <li>
+                @Html.ActionLink("SIGN IN", "SignIn", "User", new { area = "U" }, new { })
+            </li>
+            <li>
+                @Html.ActionLink("SIGN UP", "SignUp", "User", new { area = "U" }, new { })
+            </li>
+        </ul>
+    }
+    else
+    {
+        <ul class="nav navbar-nav">
+            <li>
+                @Html.ActionLink(Model.UserInfo.UserName, "SignUp", "User", new { area = "U" }, new { })
+            </li>
+            <li>
+                购物车
+            </li>
+            <li>
+                退出
+            </li>
+        </ul>
+    }
+</div>
