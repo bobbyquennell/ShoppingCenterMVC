@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="ProductManageService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:65139/ProductManageService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:65139/ProductManageService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:65139/ProductManageService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/ShoppingCenterWCF" />
+      <xsd:import schemaLocation="http://localhost:65139/ProductManageService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/ShoppingCenterBOL" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IProductManageService_GetProductsByCategory_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetProductsByCategory" />
+  </wsdl:message>
+  <wsdl:message name="IProductManageService_GetProductsByCategory_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetProductsByCategoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IProductManageService_AddProduct_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddProduct" />
+  </wsdl:message>
+  <wsdl:message name="IProductManageService_AddProduct_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddProductResponse" />
+  </wsdl:message>
+  <wsdl:message name="IProductManageService_RemoveProduct_InputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveProduct" />
+  </wsdl:message>
+  <wsdl:message name="IProductManageService_RemoveProduct_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveProductResponse" />
+  </wsdl:message>
+  <wsdl:message name="IProductManageService_EditProduct_InputMessage">
+    <wsdl:part name="parameters" element="tns:EditProduct" />
+  </wsdl:message>
+  <wsdl:message name="IProductManageService_EditProduct_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EditProductResponse" />
+  </wsdl:message>
+  <wsdl:message name="IProductManageService_AddCategory_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddCategory" />
+  </wsdl:message>
+  <wsdl:message name="IProductManageService_AddCategory_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddCategoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IProductManageService_RemoveCategory_InputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveCategory" />
+  </wsdl:message>
+  <wsdl:message name="IProductManageService_RemoveCategory_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveCategoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IProductManageService_EditCategory_InputMessage">
+    <wsdl:part name="parameters" element="tns:EditCategory" />
+  </wsdl:message>
+  <wsdl:message name="IProductManageService_EditCategory_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EditCategoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IProductManageService_GetAllCategory_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllCategory" />
+  </wsdl:message>
+  <wsdl:message name="IProductManageService_GetAllCategory_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllCategoryResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IProductManageService">
+    <wsdl:operation name="GetProductsByCategory">
+      <wsdl:input wsaw:Action="http://tempuri.org/IProductManageService/GetProductsByCategory" message="tns:IProductManageService_GetProductsByCategory_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IProductManageService/GetProductsByCategoryResponse" message="tns:IProductManageService_GetProductsByCategory_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddProduct">
+      <wsdl:input wsaw:Action="http://tempuri.org/IProductManageService/AddProduct" message="tns:IProductManageService_AddProduct_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IProductManageService/AddProductResponse" message="tns:IProductManageService_AddProduct_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveProduct">
+      <wsdl:input wsaw:Action="http://tempuri.org/IProductManageService/RemoveProduct" message="tns:IProductManageService_RemoveProduct_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IProductManageService/RemoveProductResponse" message="tns:IProductManageService_RemoveProduct_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EditProduct">
+      <wsdl:input wsaw:Action="http://tempuri.org/IProductManageService/EditProduct" message="tns:IProductManageService_EditProduct_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IProductManageService/EditProductResponse" message="tns:IProductManageService_EditProduct_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddCategory">
+      <wsdl:input wsaw:Action="http://tempuri.org/IProductManageService/AddCategory" message="tns:IProductManageService_AddCategory_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IProductManageService/AddCategoryResponse" message="tns:IProductManageService_AddCategory_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveCategory">
+      <wsdl:input wsaw:Action="http://tempuri.org/IProductManageService/RemoveCategory" message="tns:IProductManageService_RemoveCategory_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IProductManageService/RemoveCategoryResponse" message="tns:IProductManageService_RemoveCategory_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EditCategory">
+      <wsdl:input wsaw:Action="http://tempuri.org/IProductManageService/EditCategory" message="tns:IProductManageService_EditCategory_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IProductManageService/EditCategoryResponse" message="tns:IProductManageService_EditCategory_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllCategory">
+      <wsdl:input wsaw:Action="http://tempuri.org/IProductManageService/GetAllCategory" message="tns:IProductManageService_GetAllCategory_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IProductManageService/GetAllCategoryResponse" message="tns:IProductManageService_GetAllCategory_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IProductManageService" type="tns:IProductManageService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetProductsByCategory">
+      <soap:operation soapAction="http://tempuri.org/IProductManageService/GetProductsByCategory" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddProduct">
+      <soap:operation soapAction="http://tempuri.org/IProductManageService/AddProduct" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveProduct">
+      <soap:operation soapAction="http://tempuri.org/IProductManageService/RemoveProduct" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditProduct">
+      <soap:operation soapAction="http://tempuri.org/IProductManageService/EditProduct" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddCategory">
+      <soap:operation soapAction="http://tempuri.org/IProductManageService/AddCategory" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveCategory">
+      <soap:operation soapAction="http://tempuri.org/IProductManageService/RemoveCategory" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditCategory">
+      <soap:operation soapAction="http://tempuri.org/IProductManageService/EditCategory" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllCategory">
+      <soap:operation soapAction="http://tempuri.org/IProductManageService/GetAllCategory" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ProductManageService">
+    <wsdl:port name="BasicHttpBinding_IProductManageService" binding="tns:BasicHttpBinding_IProductManageService">
+      <soap:address location="http://localhost:65139/ProductManageService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

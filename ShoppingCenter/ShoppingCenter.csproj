@@ -105,6 +105,10 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Areas\U\Views\User\Active.cshtml" />
     <Content Include="Areas\U\Views\User\SignIn.cshtml" />
+    <Content Include="Areas\P\Views\web.config" />
+    <Content Include="Areas\M\Views\web.config" />
+    <Content Include="Areas\M\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\M\Views\Category\Index.cshtml" />
     <None Include="Scripts\jquery-2.1.3.intellisense.js" />
     <Content Include="Icon.png" />
     <Content Include="Scripts\bootstrap.js" />
@@ -120,6 +124,13 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Scripts\npm.js" />
+    <None Include="Service References\ProductManage\ProductManageService.disco" />
+    <None Include="Service References\ProductManage\configuration91.svcinfo" />
+    <None Include="Service References\ProductManage\configuration.svcinfo" />
+    <None Include="Service References\ProductManage\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
     <Content Include="Service References\UserManage\ShoppingCenter.UserManage.CommonResult.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
@@ -127,6 +138,28 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <Content Include="Scripts\jquery-2.1.3.min.map" />
+    <None Include="Service References\ProductManage\ProductManageService.wsdl" />
+    <None Include="Service References\ProductManage\ProductManageService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ProductManage\ProductManageService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ProductManage\ProductManageService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ProductManage\ProductManageService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Service References\ProductManage\ShoppingCenter.ProductManage.Category.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\ProductManage\ShoppingCenter.ProductManage.CommonResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\ProductManage\ShoppingCenter.ProductManage.ProductsResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
     <None Include="Service References\UserManage\UserManageService.disco" />
     <None Include="Service References\UserManage\configuration91.svcinfo" />
     <None Include="Service References\UserManage\configuration.svcinfo" />
@@ -138,6 +171,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Areas\M\Controllers\CategoryController.cs" />
+    <Compile Include="Areas\M\MAreaRegistration.cs" />
+    <Compile Include="Areas\P\PAreaRegistration.cs" />
     <Compile Include="Areas\U\Controllers\ManageController.cs" />
     <Compile Include="Areas\U\Controllers\UserController.cs" />
     <Compile Include="Areas\U\Models\ActiveViewModel.cs" />
@@ -148,6 +184,11 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service References\ProductManage\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Service References\UserManage\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -182,6 +223,11 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Areas\M\Models\" />
+    <Folder Include="Areas\M\Views\Shared\" />
+    <Folder Include="Areas\P\Controllers\" />
+    <Folder Include="Areas\P\Models\" />
+    <Folder Include="Areas\P\Views\Shared\" />
     <Folder Include="Areas\U\Views\Manage\" />
     <Folder Include="Controllers\" />
     <Folder Include="Models\" />
@@ -190,6 +236,7 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
+    <WCFMetadataStorage Include="Service References\ProductManage\" />
     <WCFMetadataStorage Include="Service References\UserManage\" />
   </ItemGroup>
   <PropertyGroup>
