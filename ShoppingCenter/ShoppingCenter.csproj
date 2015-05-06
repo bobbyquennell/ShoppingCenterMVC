@@ -125,46 +125,11 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Scripts\npm.js" />
-    <None Include="Service References\ProductManage\ProductManageService.disco" />
-    <None Include="Service References\ProductManage\configuration91.svcinfo" />
-    <None Include="Service References\ProductManage\configuration.svcinfo" />
-    <None Include="Service References\ProductManage\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
-    <Content Include="Service References\UserManage\ShoppingCenter.UserManage.CommonResult.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Service References\UserManage\ShoppingCenter.UserManage.SignInResult.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
     <Content Include="Scripts\jquery-2.1.3.min.map" />
-    <None Include="Service References\ProductManage\ProductManageService.wsdl" />
-    <None Include="Service References\ProductManage\ProductManageService.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\ProductManage\ProductManageService1.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\ProductManage\ProductManageService2.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\ProductManage\ProductManageService3.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <Content Include="Service References\ProductManage\ShoppingCenter.ProductManage.Category.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Service References\ProductManage\ShoppingCenter.ProductManage.CommonResult.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Service References\ProductManage\ShoppingCenter.ProductManage.ProductsResult.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <None Include="Service References\UserManage\UserManageService.disco" />
-    <None Include="Service References\UserManage\configuration91.svcinfo" />
-    <None Include="Service References\UserManage\configuration.svcinfo" />
-    <None Include="Service References\UserManage\Reference.svcmap">
+    <None Include="Service References\CategoryService\item.disco" />
+    <None Include="Service References\CategoryService\configuration91.svcinfo" />
+    <None Include="Service References\CategoryService\configuration.svcinfo" />
+    <None Include="Service References\CategoryService\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
@@ -186,12 +151,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Service References\ProductManage\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Compile>
-    <Compile Include="Service References\UserManage\Reference.cs">
+    <Compile Include="Service References\CategoryService\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -204,19 +164,28 @@
     <Content Include="Areas\U\Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\U\Views\User\Index.cshtml" />
-    <None Include="Service References\UserManage\UserManageService.wsdl" />
-    <None Include="Service References\UserManage\UserManageService.xsd">
+    <None Include="Service References\CategoryService\CategoryService.wsdl" />
+    <None Include="Service References\CategoryService\item.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\UserManage\UserManageService1.xsd">
+    <None Include="Service References\CategoryService\item1.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\UserManage\UserManageService2.xsd">
+    <None Include="Service References\CategoryService\item2.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\UserManage\UserManageService3.xsd">
+    <None Include="Service References\CategoryService\item3.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Service References\CategoryService\item4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Service References\CategoryService\ShoppingCenter.CategoryService.CategoriesResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CategoryService\ShoppingCenter.CategoryService.CommonResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -237,8 +206,7 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadataStorage Include="Service References\ProductManage\" />
-    <WCFMetadataStorage Include="Service References\UserManage\" />
+    <WCFMetadataStorage Include="Service References\CategoryService\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

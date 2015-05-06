@@ -8,16 +8,16 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ShoppingCenter.ProductManage {
+namespace ShoppingCenter.CategoryService {
     using System.Runtime.Serialization;
     using System;
     
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="CommonResult", Namespace="http://schemas.datacontract.org/2004/07/ShoppingCenterWCF")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="CommonResult", Namespace="http://schemas.datacontract.org/2004/07/ShoppingCenterWCFServiceLibrary", IsReference=true)]
     [System.SerializableAttribute()]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(ShoppingCenter.ProductManage.ProductsResult))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(ShoppingCenter.CategoryService.CategoriesResult))]
     public partial class CommonResult : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
@@ -77,15 +77,115 @@ namespace ShoppingCenter.ProductManage {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="ProductsResult", Namespace="http://schemas.datacontract.org/2004/07/ShoppingCenterWCF")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="CategoriesResult", Namespace="http://schemas.datacontract.org/2004/07/ShoppingCenterWCFServiceLibrary", IsReference=true)]
     [System.SerializableAttribute()]
-    public partial class ProductsResult : ShoppingCenter.ProductManage.CommonResult {
+    public partial class CategoriesResult : ShoppingCenter.CategoryService.CommonResult {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private ShoppingCenter.ProductManage.Product[] ProductsField;
+        private ShoppingCenter.CategoryService.Category[] CategoriesField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public ShoppingCenter.ProductManage.Product[] Products {
+        public ShoppingCenter.CategoryService.Category[] Categories {
+            get {
+                return this.CategoriesField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CategoriesField, value) != true)) {
+                    this.CategoriesField = value;
+                    this.RaisePropertyChanged("Categories");
+                }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Category", Namespace="http://schemas.datacontract.org/2004/07/ShoppingCenterBOL")]
+    [System.SerializableAttribute()]
+    public partial class Category : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int CategoryIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CategoryNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private ShoppingCenter.CategoryService.Category[] ChildrenField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private ShoppingCenter.CategoryService.Category ParentField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private ShoppingCenter.CategoryService.Product[] ProductsField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int CategoryId {
+            get {
+                return this.CategoryIdField;
+            }
+            set {
+                if ((this.CategoryIdField.Equals(value) != true)) {
+                    this.CategoryIdField = value;
+                    this.RaisePropertyChanged("CategoryId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CategoryName {
+            get {
+                return this.CategoryNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CategoryNameField, value) != true)) {
+                    this.CategoryNameField = value;
+                    this.RaisePropertyChanged("CategoryName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public ShoppingCenter.CategoryService.Category[] Children {
+            get {
+                return this.ChildrenField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ChildrenField, value) != true)) {
+                    this.ChildrenField = value;
+                    this.RaisePropertyChanged("Children");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public ShoppingCenter.CategoryService.Category Parent {
+            get {
+                return this.ParentField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ParentField, value) != true)) {
+                    this.ParentField = value;
+                    this.RaisePropertyChanged("Parent");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public ShoppingCenter.CategoryService.Product[] Products {
             get {
                 return this.ProductsField;
             }
@@ -94,6 +194,15 @@ namespace ShoppingCenter.ProductManage {
                     this.ProductsField = value;
                     this.RaisePropertyChanged("Products");
                 }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
             }
         }
     }
@@ -108,7 +217,7 @@ namespace ShoppingCenter.ProductManage {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private ShoppingCenter.ProductManage.Category CategoryField;
+        private ShoppingCenter.CategoryService.Category CategoryField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int CategoryIdField;
@@ -123,13 +232,13 @@ namespace ShoppingCenter.ProductManage {
         private string ProductImageField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private ShoppingCenter.ProductManage.ProductInfo ProductInfoField;
+        private ShoppingCenter.CategoryService.ProductInfo ProductInfoField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string ProductNameField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private ShoppingCenter.ProductManage.Provider ProviderField;
+        private ShoppingCenter.CategoryService.Provider ProviderField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int ProviderIdField;
@@ -145,7 +254,7 @@ namespace ShoppingCenter.ProductManage {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public ShoppingCenter.ProductManage.Category Category {
+        public ShoppingCenter.CategoryService.Category Category {
             get {
                 return this.CategoryField;
             }
@@ -210,7 +319,7 @@ namespace ShoppingCenter.ProductManage {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public ShoppingCenter.ProductManage.ProductInfo ProductInfo {
+        public ShoppingCenter.CategoryService.ProductInfo ProductInfo {
             get {
                 return this.ProductInfoField;
             }
@@ -236,7 +345,7 @@ namespace ShoppingCenter.ProductManage {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public ShoppingCenter.ProductManage.Provider Provider {
+        public ShoppingCenter.CategoryService.Provider Provider {
             get {
                 return this.ProviderField;
             }
@@ -273,115 +382,6 @@ namespace ShoppingCenter.ProductManage {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Category", Namespace="http://schemas.datacontract.org/2004/07/ShoppingCenterBOL")]
-    [System.SerializableAttribute()]
-    public partial class Category : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int CategoryIdField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string CategoryNameField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private ShoppingCenter.ProductManage.Category[] ChildrenField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private ShoppingCenter.ProductManage.Category ParentField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private ShoppingCenter.ProductManage.Product[] ProductsField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int CategoryId {
-            get {
-                return this.CategoryIdField;
-            }
-            set {
-                if ((this.CategoryIdField.Equals(value) != true)) {
-                    this.CategoryIdField = value;
-                    this.RaisePropertyChanged("CategoryId");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string CategoryName {
-            get {
-                return this.CategoryNameField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.CategoryNameField, value) != true)) {
-                    this.CategoryNameField = value;
-                    this.RaisePropertyChanged("CategoryName");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public ShoppingCenter.ProductManage.Category[] Children {
-            get {
-                return this.ChildrenField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.ChildrenField, value) != true)) {
-                    this.ChildrenField = value;
-                    this.RaisePropertyChanged("Children");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public ShoppingCenter.ProductManage.Category Parent {
-            get {
-                return this.ParentField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.ParentField, value) != true)) {
-                    this.ParentField = value;
-                    this.RaisePropertyChanged("Parent");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public ShoppingCenter.ProductManage.Product[] Products {
-            get {
-                return this.ProductsField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.ProductsField, value) != true)) {
-                    this.ProductsField = value;
-                    this.RaisePropertyChanged("Products");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ProductInfo", Namespace="http://schemas.datacontract.org/2004/07/ShoppingCenterBOL")]
     [System.SerializableAttribute()]
     public partial class ProductInfo : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
@@ -396,7 +396,7 @@ namespace ShoppingCenter.ProductManage {
         private decimal PriceField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private ShoppingCenter.ProductManage.Product ProductField;
+        private ShoppingCenter.CategoryService.Product ProductField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int ProductIdField;
@@ -441,7 +441,7 @@ namespace ShoppingCenter.ProductManage {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public ShoppingCenter.ProductManage.Product Product {
+        public ShoppingCenter.CategoryService.Product Product {
             get {
                 return this.ProductField;
             }
@@ -499,7 +499,7 @@ namespace ShoppingCenter.ProductManage {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private ShoppingCenter.ProductManage.Product[] ProductsField;
+        private ShoppingCenter.CategoryService.Product[] ProductsField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int ProviderIdField;
@@ -518,7 +518,7 @@ namespace ShoppingCenter.ProductManage {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public ShoppingCenter.ProductManage.Product[] Products {
+        public ShoppingCenter.CategoryService.Product[] Products {
             get {
                 return this.ProductsField;
             }
@@ -567,147 +567,105 @@ namespace ShoppingCenter.ProductManage {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ProductManage.IProductManageService")]
-    public interface IProductManageService {
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="CategoryService.ICategoryService")]
+    public interface ICategoryService {
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProductManageService/GetProductsByCategory", ReplyAction="http://tempuri.org/IProductManageService/GetProductsByCategoryResponse")]
-        ShoppingCenter.ProductManage.ProductsResult GetProductsByCategory(int categoryId, int productCount);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICategoryService/AddCategory", ReplyAction="http://tempuri.org/ICategoryService/AddCategoryResponse")]
+        ShoppingCenter.CategoryService.CommonResult AddCategory(string categoryName, int parentCategoryId);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProductManageService/GetProductsByCategory", ReplyAction="http://tempuri.org/IProductManageService/GetProductsByCategoryResponse")]
-        System.Threading.Tasks.Task<ShoppingCenter.ProductManage.ProductsResult> GetProductsByCategoryAsync(int categoryId, int productCount);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICategoryService/AddCategory", ReplyAction="http://tempuri.org/ICategoryService/AddCategoryResponse")]
+        System.Threading.Tasks.Task<ShoppingCenter.CategoryService.CommonResult> AddCategoryAsync(string categoryName, int parentCategoryId);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProductManageService/AddProduct", ReplyAction="http://tempuri.org/IProductManageService/AddProductResponse")]
-        ShoppingCenter.ProductManage.CommonResult AddProduct(ShoppingCenter.ProductManage.Product product);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICategoryService/RemoveCategory", ReplyAction="http://tempuri.org/ICategoryService/RemoveCategoryResponse")]
+        ShoppingCenter.CategoryService.CommonResult RemoveCategory(int categoryId);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProductManageService/AddProduct", ReplyAction="http://tempuri.org/IProductManageService/AddProductResponse")]
-        System.Threading.Tasks.Task<ShoppingCenter.ProductManage.CommonResult> AddProductAsync(ShoppingCenter.ProductManage.Product product);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICategoryService/RemoveCategory", ReplyAction="http://tempuri.org/ICategoryService/RemoveCategoryResponse")]
+        System.Threading.Tasks.Task<ShoppingCenter.CategoryService.CommonResult> RemoveCategoryAsync(int categoryId);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProductManageService/RemoveProduct", ReplyAction="http://tempuri.org/IProductManageService/RemoveProductResponse")]
-        ShoppingCenter.ProductManage.CommonResult RemoveProduct(ShoppingCenter.ProductManage.Product product);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICategoryService/EditCategory", ReplyAction="http://tempuri.org/ICategoryService/EditCategoryResponse")]
+        ShoppingCenter.CategoryService.CommonResult EditCategory(ShoppingCenter.CategoryService.Category category);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProductManageService/RemoveProduct", ReplyAction="http://tempuri.org/IProductManageService/RemoveProductResponse")]
-        System.Threading.Tasks.Task<ShoppingCenter.ProductManage.CommonResult> RemoveProductAsync(ShoppingCenter.ProductManage.Product product);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICategoryService/EditCategory", ReplyAction="http://tempuri.org/ICategoryService/EditCategoryResponse")]
+        System.Threading.Tasks.Task<ShoppingCenter.CategoryService.CommonResult> EditCategoryAsync(ShoppingCenter.CategoryService.Category category);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProductManageService/EditProduct", ReplyAction="http://tempuri.org/IProductManageService/EditProductResponse")]
-        ShoppingCenter.ProductManage.CommonResult EditProduct(ShoppingCenter.ProductManage.Product product);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICategoryService/GetAllCategory", ReplyAction="http://tempuri.org/ICategoryService/GetAllCategoryResponse")]
+        System.Collections.Generic.KeyValuePair<int, string>[] GetAllCategory();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProductManageService/EditProduct", ReplyAction="http://tempuri.org/IProductManageService/EditProductResponse")]
-        System.Threading.Tasks.Task<ShoppingCenter.ProductManage.CommonResult> EditProductAsync(ShoppingCenter.ProductManage.Product product);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICategoryService/GetAllCategory", ReplyAction="http://tempuri.org/ICategoryService/GetAllCategoryResponse")]
+        System.Threading.Tasks.Task<System.Collections.Generic.KeyValuePair<int, string>[]> GetAllCategoryAsync();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProductManageService/AddCategory", ReplyAction="http://tempuri.org/IProductManageService/AddCategoryResponse")]
-        ShoppingCenter.ProductManage.CommonResult AddCategory(ShoppingCenter.ProductManage.Category category);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICategoryService/GetCategory", ReplyAction="http://tempuri.org/ICategoryService/GetCategoryResponse")]
+        ShoppingCenter.CategoryService.CategoriesResult GetCategory();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProductManageService/AddCategory", ReplyAction="http://tempuri.org/IProductManageService/AddCategoryResponse")]
-        System.Threading.Tasks.Task<ShoppingCenter.ProductManage.CommonResult> AddCategoryAsync(ShoppingCenter.ProductManage.Category category);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProductManageService/RemoveCategory", ReplyAction="http://tempuri.org/IProductManageService/RemoveCategoryResponse")]
-        ShoppingCenter.ProductManage.CommonResult RemoveCategory(ShoppingCenter.ProductManage.Category category);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProductManageService/RemoveCategory", ReplyAction="http://tempuri.org/IProductManageService/RemoveCategoryResponse")]
-        System.Threading.Tasks.Task<ShoppingCenter.ProductManage.CommonResult> RemoveCategoryAsync(ShoppingCenter.ProductManage.Category category);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProductManageService/EditCategory", ReplyAction="http://tempuri.org/IProductManageService/EditCategoryResponse")]
-        ShoppingCenter.ProductManage.CommonResult EditCategory(ShoppingCenter.ProductManage.Category category);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProductManageService/EditCategory", ReplyAction="http://tempuri.org/IProductManageService/EditCategoryResponse")]
-        System.Threading.Tasks.Task<ShoppingCenter.ProductManage.CommonResult> EditCategoryAsync(ShoppingCenter.ProductManage.Category category);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProductManageService/GetAllCategory", ReplyAction="http://tempuri.org/IProductManageService/GetAllCategoryResponse")]
-        ShoppingCenter.ProductManage.Category[] GetAllCategory();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProductManageService/GetAllCategory", ReplyAction="http://tempuri.org/IProductManageService/GetAllCategoryResponse")]
-        System.Threading.Tasks.Task<ShoppingCenter.ProductManage.Category[]> GetAllCategoryAsync();
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICategoryService/GetCategory", ReplyAction="http://tempuri.org/ICategoryService/GetCategoryResponse")]
+        System.Threading.Tasks.Task<ShoppingCenter.CategoryService.CategoriesResult> GetCategoryAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface IProductManageServiceChannel : ShoppingCenter.ProductManage.IProductManageService, System.ServiceModel.IClientChannel {
+    public interface ICategoryServiceChannel : ShoppingCenter.CategoryService.ICategoryService, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class ProductManageServiceClient : System.ServiceModel.ClientBase<ShoppingCenter.ProductManage.IProductManageService>, ShoppingCenter.ProductManage.IProductManageService {
+    public partial class CategoryServiceClient : System.ServiceModel.ClientBase<ShoppingCenter.CategoryService.ICategoryService>, ShoppingCenter.CategoryService.ICategoryService {
         
-        public ProductManageServiceClient() {
+        public CategoryServiceClient() {
         }
         
-        public ProductManageServiceClient(string endpointConfigurationName) : 
+        public CategoryServiceClient(string endpointConfigurationName) : 
                 base(endpointConfigurationName) {
         }
         
-        public ProductManageServiceClient(string endpointConfigurationName, string remoteAddress) : 
+        public CategoryServiceClient(string endpointConfigurationName, string remoteAddress) : 
                 base(endpointConfigurationName, remoteAddress) {
         }
         
-        public ProductManageServiceClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
+        public CategoryServiceClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(endpointConfigurationName, remoteAddress) {
         }
         
-        public ProductManageServiceClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
+        public CategoryServiceClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(binding, remoteAddress) {
         }
         
-        public ShoppingCenter.ProductManage.ProductsResult GetProductsByCategory(int categoryId, int productCount) {
-            return base.Channel.GetProductsByCategory(categoryId, productCount);
+        public ShoppingCenter.CategoryService.CommonResult AddCategory(string categoryName, int parentCategoryId) {
+            return base.Channel.AddCategory(categoryName, parentCategoryId);
         }
         
-        public System.Threading.Tasks.Task<ShoppingCenter.ProductManage.ProductsResult> GetProductsByCategoryAsync(int categoryId, int productCount) {
-            return base.Channel.GetProductsByCategoryAsync(categoryId, productCount);
+        public System.Threading.Tasks.Task<ShoppingCenter.CategoryService.CommonResult> AddCategoryAsync(string categoryName, int parentCategoryId) {
+            return base.Channel.AddCategoryAsync(categoryName, parentCategoryId);
         }
         
-        public ShoppingCenter.ProductManage.CommonResult AddProduct(ShoppingCenter.ProductManage.Product product) {
-            return base.Channel.AddProduct(product);
+        public ShoppingCenter.CategoryService.CommonResult RemoveCategory(int categoryId) {
+            return base.Channel.RemoveCategory(categoryId);
         }
         
-        public System.Threading.Tasks.Task<ShoppingCenter.ProductManage.CommonResult> AddProductAsync(ShoppingCenter.ProductManage.Product product) {
-            return base.Channel.AddProductAsync(product);
+        public System.Threading.Tasks.Task<ShoppingCenter.CategoryService.CommonResult> RemoveCategoryAsync(int categoryId) {
+            return base.Channel.RemoveCategoryAsync(categoryId);
         }
         
-        public ShoppingCenter.ProductManage.CommonResult RemoveProduct(ShoppingCenter.ProductManage.Product product) {
-            return base.Channel.RemoveProduct(product);
-        }
-        
-        public System.Threading.Tasks.Task<ShoppingCenter.ProductManage.CommonResult> RemoveProductAsync(ShoppingCenter.ProductManage.Product product) {
-            return base.Channel.RemoveProductAsync(product);
-        }
-        
-        public ShoppingCenter.ProductManage.CommonResult EditProduct(ShoppingCenter.ProductManage.Product product) {
-            return base.Channel.EditProduct(product);
-        }
-        
-        public System.Threading.Tasks.Task<ShoppingCenter.ProductManage.CommonResult> EditProductAsync(ShoppingCenter.ProductManage.Product product) {
-            return base.Channel.EditProductAsync(product);
-        }
-        
-        public ShoppingCenter.ProductManage.CommonResult AddCategory(ShoppingCenter.ProductManage.Category category) {
-            return base.Channel.AddCategory(category);
-        }
-        
-        public System.Threading.Tasks.Task<ShoppingCenter.ProductManage.CommonResult> AddCategoryAsync(ShoppingCenter.ProductManage.Category category) {
-            return base.Channel.AddCategoryAsync(category);
-        }
-        
-        public ShoppingCenter.ProductManage.CommonResult RemoveCategory(ShoppingCenter.ProductManage.Category category) {
-            return base.Channel.RemoveCategory(category);
-        }
-        
-        public System.Threading.Tasks.Task<ShoppingCenter.ProductManage.CommonResult> RemoveCategoryAsync(ShoppingCenter.ProductManage.Category category) {
-            return base.Channel.RemoveCategoryAsync(category);
-        }
-        
-        public ShoppingCenter.ProductManage.CommonResult EditCategory(ShoppingCenter.ProductManage.Category category) {
+        public ShoppingCenter.CategoryService.CommonResult EditCategory(ShoppingCenter.CategoryService.Category category) {
             return base.Channel.EditCategory(category);
         }
         
-        public System.Threading.Tasks.Task<ShoppingCenter.ProductManage.CommonResult> EditCategoryAsync(ShoppingCenter.ProductManage.Category category) {
+        public System.Threading.Tasks.Task<ShoppingCenter.CategoryService.CommonResult> EditCategoryAsync(ShoppingCenter.CategoryService.Category category) {
             return base.Channel.EditCategoryAsync(category);
         }
         
-        public ShoppingCenter.ProductManage.Category[] GetAllCategory() {
+        public System.Collections.Generic.KeyValuePair<int, string>[] GetAllCategory() {
             return base.Channel.GetAllCategory();
         }
         
-        public System.Threading.Tasks.Task<ShoppingCenter.ProductManage.Category[]> GetAllCategoryAsync() {
+        public System.Threading.Tasks.Task<System.Collections.Generic.KeyValuePair<int, string>[]> GetAllCategoryAsync() {
             return base.Channel.GetAllCategoryAsync();
+        }
+        
+        public ShoppingCenter.CategoryService.CategoriesResult GetCategory() {
+            return base.Channel.GetCategory();
+        }
+        
+        public System.Threading.Tasks.Task<ShoppingCenter.CategoryService.CategoriesResult> GetCategoryAsync() {
+            return base.Channel.GetCategoryAsync();
         }
     }
 }

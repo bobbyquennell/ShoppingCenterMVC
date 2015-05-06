@@ -13,7 +13,7 @@ namespace ShoppingCenter.Areas.M.Models
         public string CategoryName { get; set; }
 
         [Display(Name = "Choose Parent Category")]
-        public int CategoryId { get; set; }
+        public int ParentCategoryId { get; set; }
 
         public SelectList Categories { get; set; }
     }

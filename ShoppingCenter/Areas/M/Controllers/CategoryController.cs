@@ -1,5 +1,5 @@
 ﻿using ShoppingCenter.Areas.M.Models;
-using ShoppingCenter.ProductManage;
+using ShoppingCenter.CategoryService;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,8 +11,14 @@ namespace ShoppingCenter.Areas.M.Controllers
 {
     public class CategoryController : Controller
     {
-        ProductManageServiceClient client = new ProductManageServiceClient();
+        CategoryServiceClient client = new CategoryServiceClient();
 
+        private async Task<SelectList> GetCategoryListAsync()
+        {
+            var CategoryList = await client.GetAllCategoryAsync();
+            return new SelectList(CategoryList);
+        }
+        
         // GET: M/Category
         public ActionResult Index()
         {
@@ -23,8 +29,7 @@ namespace ShoppingCenter.Areas.M.Controllers
         public async Task<ActionResult> Create()
         {
             var viewModel = new CategoryViewModel();
-            var CategoryList = await client.GetAllCategoryAsync();
-            viewModel.Categories = new SelectList(CategoryList, "CategoryId", "CategoryName");
+            viewModel.Categories = await GetCategoryListAsync();
             return View(viewModel);
         }
 
@@ -34,13 +39,19 @@ namespace ShoppingCenter.Areas.M.Controllers
         {
             try
             {
-                Category category = new Category()
-                {
-                     CategoryName = collection.
-                }
-                var result = await client.AddCategoryAsync(
+                string categoryName = collection["CategoryName"];
+                int parentCategoryId = Int32.Parse(collection["ParentCategoryId"]);
+                var result = await client.AddCategoryAsync(categoryName, parentCategoryId);
 
-                return RedirectToAction("Index");
+                if(result.Success)
+                {
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+                    return View(collection);
+                }
+
             }
             catch
             {

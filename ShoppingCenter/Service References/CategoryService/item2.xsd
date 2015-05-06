@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/ShoppingCenterWCFServiceLibrary" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/ShoppingCenterWCFServiceLibrary" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:8733/Design_Time_Addresses/ShoppingCenterWCFServiceLibrary/CategoryService/?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:import schemaLocation="http://localhost:8733/Design_Time_Addresses/ShoppingCenterWCFServiceLibrary/CategoryService/?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/ShoppingCenterBOL" />
+  <xs:complexType name="CommonResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ErrorMessage" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Success" type="xs:boolean" />
+    </xs:sequence>
+    <xs:attribute ref="ser:Id" />
+    <xs:attribute ref="ser:Ref" />
+  </xs:complexType>
+  <xs:element name="CommonResult" nillable="true" type="tns:CommonResult" />
+  <xs:complexType name="CategoriesResult">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:CommonResult">
+        <xs:sequence>
+          <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/ShoppingCenterBOL" minOccurs="0" name="Categories" nillable="true" type="q1:ArrayOfCategory" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="CategoriesResult" nillable="true" type="tns:CategoriesResult" />
+</xs:schema>
